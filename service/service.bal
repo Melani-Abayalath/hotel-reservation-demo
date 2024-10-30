@@ -3,6 +3,7 @@ import ballerina/http;
 final Room[] rooms = getAllRooms();
 table<Reservation> key(id) roomReservations = table [];
 
+ string middleName?;
 service /reservations on new http:Listener(9090) {
 
     resource function post .(NewReservationRequest payload) returns Reservation|NewReservationError|error? {
